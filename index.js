@@ -4,7 +4,12 @@ const port = 3000;
 require("dotenv").config();
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.writeHead(200, { "Content-Type": "text/html" });
+  res.end("Hello World!");
+});
+app.get("/api", () => {
+  res.writeHead(200, { "Content-Type": "text/html" });
+  res.end("Hello api!");
 });
 
 app.listen(process.env.PORT, () => {
