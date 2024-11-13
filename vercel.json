@@ -1,9 +1,39 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/**/*.js", "use": "@vercel/node" }
+    {
+      "src": "app.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "routes/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "controllers/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "models/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "middleware/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "config/**/*.js",
+      "use": "@vercel/node"
+    }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" }
-  ]
+    {
+      "src": "/(.*)",
+      "dest": "app.js"
+    }
+  ],
+  "env": {
+    "MONGO_URI": "@mongo_uri",
+    "JWT_SECRET": "@jwt_secret"
+  }
 }
