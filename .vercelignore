@@ -1,0 +1,28 @@
+# Dependencies
+node_modules
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Testing
+coverage
+__tests__
+*.test.js
+*.spec.js
+
+# Development
+.git
+.gitignore
+.env.local
+.env.development
+README.md
+CHANGELOG.md
+.editorconfig
+.eslintrc
+.prettierrc
+
+# Misc
+.DS_Store
+*.log
+.idea
+.vscode
