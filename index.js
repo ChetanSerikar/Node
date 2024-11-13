@@ -1,17 +1,34 @@
-const express = require("express");
+// const express = require("express");
+// const app = express();
+// const port = 3000;
+// require("dotenv").config();
+
+// app.get("/", (req, res) => {
+//   res.writeHead(200, { "Content-Type": "text/html" });
+//   res.end("Hello World!");
+// });
+// app.get("/api", () => {
+//   res.writeHead(200, { "Content-Type": "text/html" });
+//   res.end("Hello api!");
+// });
+
+// app.listen(process.env.PORT, () => {
+//   console.log(`Example app listening on port ${port}`);
+// });
+
+// server.js
+
+const express = require('express');
+const connectDB = require('./config/database');
+const employeeRoutes = require('./routes/employeeRoutes');
+require('dotenv').config();
+
 const app = express();
-const port = 3000;
-require("dotenv").config();
+connectDB();
 
-app.get("/", (req, res) => {
-  res.writeHead(200, { "Content-Type": "text/html" });
-  res.end("Hello World!");
-});
-app.get("/api", () => {
-  res.writeHead(200, { "Content-Type": "text/html" });
-  res.end("Hello api!");
-});
+app.use(express.json());
 
-app.listen(process.env.PORT, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+app.use('/api/employees', employeeRoutes);
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
