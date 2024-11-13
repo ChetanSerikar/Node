@@ -8,14 +8,6 @@
   ],
   "routes": [
     {
-      "src": "/api/employees/(.*)",
-      "dest": "app.js"
-    },
-    {
-      "src": "/api/departments/(.*)",
-      "dest": "app.js"
-    },
-    {
       "src": "/(.*)",
       "dest": "app.js"
     }
