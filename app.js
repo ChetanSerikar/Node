@@ -21,6 +21,7 @@
 const express = require('express');
 const connectDB = require('./config/database');
 const employeeRoutes = require('./routes/employeeRoutes');
+const departmentRoutes = require('./routes/departmentRoutes');
 require('dotenv').config();
 
 const app = express();
@@ -29,6 +30,7 @@ connectDB();
 app.use(express.json());
 
 app.use('/api/employees', employeeRoutes);
+app.use('/api/departments', departmentRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
